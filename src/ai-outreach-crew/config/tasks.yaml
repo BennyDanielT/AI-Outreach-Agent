@@ -1,0 +1,19 @@
+craft-job-ad:
+  name: Craft Job Advertisement
+  description: Gather job requirements from the recruiter or HR personnel and craft a job advertisement following the specified format.
+  expected_output: |
+      ## About the Organization
+      [Detailed information about the organization, including its mission, values, and any other relevant details]
+
+      ## About the Job
+      [Job title, description, and key responsibilities]
+
+      ## Responsibilities
+      - [List of job responsibilities]
+
+      ## Requirements 
+      - [List of required qualifications and skills]
+
+      ## Good to Have
+      - [List of preferred or "good to have" qualifications and skills]
+  
