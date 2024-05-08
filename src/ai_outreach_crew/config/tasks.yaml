@@ -1,5 +1,4 @@
-craft_job_ad:
-  name: Craft Job Advertisement
+craft_job_ad_task:
   description: Gather job requirements from the recruiter or HR personnel and craft a job advertisement following the specified format.
   expected_output: |
     ## About the Organization

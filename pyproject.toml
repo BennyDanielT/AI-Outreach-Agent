@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "ai-outreach-agent"
+name = "ai-outreach-crew"
 version = "0.1.0"
 description = "This project aims to leverage large language models (LLMs) to automate the process of identifying potential candidates on LinkedIn and sending personalized invitation messages. The goal is to streamline the outreach process and increase the chances of successful connections and engagements."
 authors = ["BennyDanielT <benny28dany@gmail.com>"]
@@ -7,8 +7,13 @@ license = "GNU LESSER GENERAL PUBLIC LICENSE"
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = ">=3.10,<=3.13"
 requests = "^2.31.0"
+crewai = "^0.28.8"
+groq = "^0.5.0"
+
+[tool.poetry.scripts]
+ai_outreach_crew = "ai_outreach_crew.main:run"
 
 
 [build-system]
