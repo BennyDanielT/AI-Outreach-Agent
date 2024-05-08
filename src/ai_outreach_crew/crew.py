@@ -15,8 +15,8 @@ class RecruitmentCrew:
     tasks_config = "config/tasks.yaml"
 
     def __init__(self):
-        self.LLM = Ollama(model="llama3")
-        # self.LLM = ChatGroq(temperature=0.3, model_name="llama3-8b-8192")
+        # self.LLM = Ollama(model="llama3")
+        self.LLM = ChatGroq(temperature=0.3, model_name="llama3-8b-8192")
 
     #################################################################
     # Agents:
