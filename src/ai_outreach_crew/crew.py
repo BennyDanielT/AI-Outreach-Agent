@@ -4,6 +4,8 @@ from crewai.project import CrewBase, agent, task, crew
 
 from langchain_community.llms import Ollama
 
+from langchain_groq import ChatGroq
+
 
 @CrewBase
 class RecruitmentCrew:
@@ -14,6 +16,7 @@ class RecruitmentCrew:
 
     def __init__(self):
         self.LLM = Ollama(model="llama3")
+        # self.LLM = ChatGroq(temperature=0.3, model_name="llama3-8b-8192")
 
     #################################################################
     # Agents:
