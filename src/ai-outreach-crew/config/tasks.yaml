@@ -1,19 +1,79 @@
-craft-job-ad:
+craft_job_ad:
   name: Craft Job Advertisement
   description: Gather job requirements from the recruiter or HR personnel and craft a job advertisement following the specified format.
   expected_output: |
-      ## About the Organization
-      [Detailed information about the organization, including its mission, values, and any other relevant details]
+    ## About the Organization
+    [Detailed information about the organization, including its mission, values, and any other relevant details]
 
-      ## About the Job
-      [Job title, description, and key responsibilities]
+    ## About the Job
+    [Job title, description, and key responsibilities]
 
-      ## Responsibilities
-      - [List of job responsibilities]
+    ## Responsibilities
+    - [List of job responsibilities]
 
-      ## Requirements 
-      - [List of required qualifications and skills]
+    ## Requirements
+    - [List of required qualifications and skills]
 
-      ## Good to Have
-      - [List of preferred or "good to have" qualifications and skills]
-  
+    ## Good to Have
+    - [List of preferred or "good to have" qualifications and skills]
+
+talent_acquisition_task:
+  description: Scrape LinkedIn for candidate profiles that match the job requirements and return a list of relevant profiles in JSON format.
+  expected_output: |
+    A list of profiles in JSON format, with the following fields:
+    - name
+    - headline
+    - location
+    - experience
+    - skills
+    Refer to the examples below for the expected format.
+      [
+        {
+          "name": "John Doe",
+          "headline": "Senior Machine Learning Engineer",
+          "location": "San Francisco, CA",
+          "experience": "5+ years of experience in machine learning engineering, with a focus on developing and deploying models in production environments.",
+          "skills": [
+            "Google Cloud Platform",
+            "TensorFlow",
+            "Natural Language Processing",
+            "Generative AI"
+          ],
+          "education": "Master's Degree in Computer Science, Stanford University"
+        },
+        {
+          "name": "Jane Smith",
+          "headline": "Machine Learning Researcher",
+          "location": "New York, NY",
+          "experience": "3 years of experience in research and development of large language models and generative AI techniques.",
+          "skills": [
+            "PyTorch",
+            "Transformer Models",
+            "Natural Language Processing",
+            "Distributed Computing"
+          ],
+          "education": "PhD in Computer Science, MIT"
+        },
+        {
+          "name": "Michael Johnson",
+          "headline": "Data Scientist",
+          "location": "Seattle, WA",
+          "experience": "4 years of experience in data preprocessing, feature engineering, and model evaluation for text-based datasets.",
+          "skills": [
+            "Python",
+            "Scikit-learn",
+            "Natural Language Processing",
+            "MLOps"
+          ],
+          "education": "Bachelor's Degree in Statistics, University of Washington"
+        }
+      ]
+
+outreach_task:
+  description: Reach out to the list of candidate profiles provided by the talent acquisition agent using the specified outreach tools.
+  expected_output: |
+    Outreach summary:
+    - Total candidates reached: 25
+    - Positive responses: 12
+    - Scheduled interviews: 8
+    - Declined: 5
