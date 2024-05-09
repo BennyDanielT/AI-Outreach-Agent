@@ -1,10 +1,12 @@
 from crewai import Agent, Task, Crew, Process
-
 from crewai.project import CrewBase, agent, task, crew
-
 from langchain_community.llms import Ollama
-
 from langchain_groq import ChatGroq
+from crewai_tools import SerperDevTool, WebsiteSearchTool, FileReadTool
+
+web_search_tool = WebsiteSearchTool()
+serper_dev_tool = SerperDevTool()
+
 
 
 @CrewBase
@@ -28,6 +30,7 @@ class RecruitmentCrew:
         return Agent(
             config=self.agents_config["requirement_specification_agent"],
             llm=self.LLM,
+            tools=[web_search_tool, serper_dev_tool],
         )
 
     # @agent

@@ -1,11 +1,11 @@
 craft_job_ad_task:
-  description: Gather job requirements from the recruiter or HR personnel and craft a job advertisement for a {role} opening at {organization} following the specified format.
+  description: Gather job requirements from the recruiter or HR personnel, research on {website} and craft a job advertisement for a {role} opening at {organization} following the specified format. Write the job description to a markdown file using the tool.
   expected_output: |
     ## About the Organization
-    [Detailed information about the organization, including its mission, values, and any other relevant details.
+    [Detailed information about the organization, including its mission, values, domains of expertise, services and solutions offered, and any other relevant details.
 
     ## About the Job
-    [Job title, description, and key responsibilities  by referring to {description}, {location}, {start_date} and {category}]]
+    [Job title, description, and key responsibilities, start date, job category and other relevant details  by referring to {description}, {location}, {start_date} and {category}]]
 
     ## Responsibilities
     - [List of job responsibilities]

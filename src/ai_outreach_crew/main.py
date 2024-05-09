@@ -8,16 +8,12 @@ from ai_outreach_crew.crew import RecruitmentCrew
 
 def run():
     inputs = {
-        "organization": "AstraZeneca India Pvt. Ltd.",
+        "organization": "Rimot.io.",
+        "website": "https://bluegrid.energy/",
         "role": "DevOps Developer",
-        "description": """The AstraZeneca Global Technology center in Chennai, India requires a DevOps developer to manage 
-        infrastructure in the cloud using AWS. We are looking for someone who has expertise in infrastructure as code, 
-        AWS Services, Containerization technology and Python. The ideal candidate can work on AWS CDK, Terraform and 
-        Kubernetes to spin up clusters and deploy production-grade applications on the cloud. We need someone with at 
-        least 4 years of experience. Proficiency in Java and Typescript codebases are a plus.
-        AWS Certifications are a plus.""",
+        "description": """Rimot is looking for a DevOps developer. Work will be on Tyscript and Python codebases. CICD, piepline development and deployment.""",
         "location": "Halifax, Nova Scotia",
-        "start_date": "June 20, 2024",
+        "start_date": "June 30, 2024",
         "category": "Full-Time",
     }
 

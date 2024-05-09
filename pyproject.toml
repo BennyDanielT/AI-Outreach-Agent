@@ -9,7 +9,7 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = ">=3.10,<=3.13"
 requests = "^2.31.0"
-crewai = "^0.28.8"
+crewai = {extras = ["tools"], version = "^0.28.8"}
 groq = "^0.5.0"
 langchain-groq = "^0.1.3"
 
