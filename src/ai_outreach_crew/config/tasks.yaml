@@ -26,7 +26,9 @@ talent_acquisition_task:
     experience: ''
     skills: ''   
     email: '' 
+  context: craft_job_ad_task
   output_file: ./documents/candidate_profiles.json
+  
 
 
 outreach_task:
