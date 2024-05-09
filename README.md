@@ -15,6 +15,8 @@ This project aims to leverage large language models (LLMs) to automate the proce
 2. Ensure you have poetry installed in your machine, if not, execute `pip install poetry`
 3. Install the dependencies with `poetry install`
 4. Obtain your groq api key on [groq console](https://console.groq.com/keys)
-5. Run the application with `poetry run ai_outreach_crew`
-6. View the results in the terminal
-7. Modify the inputs in `main.py` to test different example
+5. Obtain the your Serper API key on [Serper](https://serper.dev/api-key)
+6. Rename the `.env.example` file to `.env` and Update the key values with the keys obtained in the previous steps
+7. Run the application with `poetry run ai_outreach_crew`
+8. View the results in the terminal
+9. Modify the inputs in `main.py` to test different example
