@@ -2,11 +2,13 @@ from crewai import Agent, Task, Crew, Process
 from crewai.project import CrewBase, agent, task, crew
 from langchain_community.llms import Ollama
 from langchain_groq import ChatGroq
-from crewai_tools import SerperDevTool, WebsiteSearchTool, FileReadTool
+from crewai_tools import SerperDevTool, WebsiteSearchTool, ScrapeWebsiteTool
+
+# from tools.custom_tools import CustomTools
 
 web_search_tool = WebsiteSearchTool()
 serper_dev_tool = SerperDevTool()
-
+scraper_tool = ScrapeWebsiteTool(website_url="https://www.linkedin.com")
 
 
 @CrewBase
@@ -30,16 +32,19 @@ class RecruitmentCrew:
         return Agent(
             config=self.agents_config["requirement_specification_agent"],
             llm=self.LLM,
-            tools=[web_search_tool, serper_dev_tool],
+            tools=[scraper_tool],
+            # cache=True,
         )
 
-    # @agent
-    # def talent_acquisition_agent(self) -> Agent:
-    #     """Agent for scraping the web and obtaining LinkedIn profiles of relevant individuals"""
-    #     return Agent(
-    #         config=self.agents_config["talent_acquisition_agent"],
-    #         llm=self.LLM,
-    #     )
+    @agent
+    def talent_acquisition_agent(self) -> Agent:
+        """Agent for scraping the web and obtaining LinkedIn profiles of relevant individuals"""
+        return Agent(
+            config=self.agents_config["talent_acquisition_agent"],
+            llm=self.LLM,
+            tools=[web_search_tool, serper_dev_tool, scraper_tool],
+            # cache=True,
+        )
 
     # @agent
     # def outreach_agent(self) -> Agent:
@@ -61,13 +66,14 @@ class RecruitmentCrew:
             agent=self.requirement_specification_agent(),
         )
 
-    # @task
-    # def talent_acquisition_task(self) -> Task:
-    #     """Task for obtaining a list of individuals whose profiles are relevant to the job advertisement"""
-    #     return Task(
-    #         config=self.tasks_config["talent_acquisition_task"],
-    #         agent=self.talent_acquisition_agent(),
-    #     )
+    @task
+    def talent_acquisition_task(self) -> Task:
+        """Task for obtaining a list of individuals whose profiles are relevant to the job advertisement"""
+        return Task(
+            config=self.tasks_config["talent_acquisition_task"],
+            agent=self.talent_acquisition_agent(),
+            # human_input=True,
+        )
 
     # @task
     # def outreach_task(self) -> Task:
