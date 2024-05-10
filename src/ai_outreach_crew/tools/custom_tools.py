@@ -1,4 +1,3 @@
-import json
 import os
 import requests
 from typing import Any
@@ -11,11 +10,11 @@ load_dotenv()
 class CustomTools:
 
     @tool(
-        "Scrape LinkedIn for people whose profile match the requirements of a job posting using the proxycurl API"
+        "Scrape LinkedIn for people whose profile match the requirements of a job posting using the Google Programmable Search Engine"
     )
-    def scrape_linkedin(**kwargs: Any) -> list:
+    def pse(**kwargs: Any) -> list:
         """
-        Scrape LinkedIn for people whose profile match the requirements of a job posting
+        Scrape LinkedIn for people whose profile match the requirements of a job posting using the Google Programmable Search Engine
 
         Args:
             job_description (str): The job description to match candidate profiles against.
@@ -25,32 +24,35 @@ class CustomTools:
             list: A list of dictionaries containing candidate profile information.
         """
 
-        # Set up proxycurl API credentials
-        api_key = os.getenv("PROXYCURL_API_KEY")
-        api_url = "https://nubela.co/proxycurl/api/v2"
+        # Set up Google Programmable Search Engine credentials
+        api_key = os.getenv("GOOGLE_API_KEY")
+        cx = os.getenv("GOOGLE_CX")
 
-        # Define the API endpoint and parameters
-        endpoint = "/search/person"
-        params = {
-            "country": "CA",
-            "skills": ["Langchain", "python", "docker"],
-        }
+        # Define the search query
+        query = f"Devops developer profiles on Linkedin"
 
         # Make the API request
-        headers = {"Authorization": "Bearer " + api_key}
-        response = requests.get(f"{api_url}{endpoint}", headers=headers, params=params)
+        api_url = f"https://www.googleapis.com/customsearch/v1?key={api_key}&cx={cx}&q={query}"
+        response = requests.get(api_url)
 
         # Check if the request was successful
         if response.status_code == 200:
             data = response.json()
-            with open("./documents/linkedin_data.json", "w") as f:
-                json.dump(data, f)
+            results = []
+            for item in data["items"]:
+                result = {
+                    "title": item["title"],
+                    "link": item["link"],
+                    "snippet": item["snippet"],
+                }
+                results.append(result)
+            print(f"Found {len(results)} results")
+            print(results)
         else:
             print(f"Error: {response.status_code} - {response.text}")
             return []
 
-
 if __name__ == "__main__":
-    instance = CustomTools()
-    tool = instance.scrape_linkedin
+    scraper = CustomTools()
+    tool = scraper.pse
     tool.run()
