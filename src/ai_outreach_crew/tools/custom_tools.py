@@ -34,6 +34,7 @@ class CustomTools:
         # Make the API request
         api_url = f"https://www.googleapis.com/customsearch/v1?key={api_key}&cx={cx}&q={query}"
         response = requests.get(api_url)
+        # site:ca.linkedin.com/in ("Calgary * Canada") AND (Java AND Hibernate) AND (Spring OR MySQL)
 
         # Check if the request was successful
         if response.status_code == 200:
