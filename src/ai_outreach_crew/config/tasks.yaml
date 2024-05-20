@@ -1,5 +1,5 @@
 craft_job_ad_task:
-  description: Gather job requirements from the recruiter or HR personnel, research on {website} and craft a job advertisement for a {role} opening at {organization} following the specified format.
+  description: Gather job requirements from the recruiter or HR personnel, use the website search tool to research on {website} and craft a job advertisement for a {role} opening at {organization} following the specified format.
   expected_output: |
     ## About the Organization
     [Detailed information about the organization, including its mission, values, domains of expertise, services and solutions offered, and any other relevant details.
@@ -16,19 +16,23 @@ craft_job_ad_task:
     ## Good to Have
     - [List of preferred or "good to have" qualifications and skills]
   output_file: "./documents/job_ad_1.txt"
+  website: {website}
 
 talent_acquisition_task:
-  description: Scrape LinkedIn for candidate profiles that match the job requirements and return a list of relevant profiles in JSON format.
+  description: Scrape LinkedIn for candidate profiles that match the job's skill requirements and return a list of relevant profiles in JSON format. Use the pse (programmable search engine) tool provided to create a search query based on the location - {location} and skill requirements and pass it to the programmable search engine tool to find the relevant profiles on LinkedIn. Return at least 10 profiles.
   expected_output: |
     name: ''
-    headline: ''
+    url: ''
     location: ''
     experience: ''
     skills: ''   
     email: '' 
-  context: craft_job_ad_task
+  # context:
+  #   - task_name: craft_job_ad_task
+  #     task_result: A job advertisement with a description of the company, requirements and preferred skills
+  #     description: Job requirement description for an opening in an organization
+  #     expected_output: A job description with a set of requirements and preferred skills
   output_file: ./documents/candidate_profiles.json
-  
 
 
 outreach_task:
@@ -39,3 +43,9 @@ outreach_task:
     - Positive responses: 12
     - Scheduled interviews: 8
     - Declined: 5
+  output_file: "./documents/outreach_summary.txt"
+  context:
+    - task_name: talent_acquisition_task
+      task_result: A list of candidate profiles
+      description: Candidate profiles matching the job requirements
+      expected_output: A list of candidate profiles

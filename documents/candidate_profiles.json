@@ -1,0 +1,42 @@
+[
+    {
+        "name": "Sai Sandeep Mutyala",
+        "url": "https://ca.linkedin.com/in/sandeepmutyala",
+        "location": "Halifax, Nova Scotia",
+        "experience": "",
+        "skills": "TypeScript, Python, Ruby, HTML, CSS",
+        "email": ""
+    },
+    {
+        "name": "Henri Vandersleyen",
+        "url": "https://ca.linkedin.com/in/henri-vandersleyen-a25a8312b",
+        "location": "Halifax, Nova Scotia, Canada",
+        "experience": "May 2012 - Dec 2013 1 year 8 months",
+        "skills": "Software Development Life Cycle SDLC and Project Management",
+        "email": ""
+    },
+    {
+        "name": "Huang Zheng",
+        "url": "https://ca.linkedin.com/in/huang-zheng-425948121",
+        "location": "Halifax, Nova Scotia",
+        "experience": "6 years of Backend development experience",
+        "skills": "Python, Software Development Life Cycle SDLC and Project Management",
+        "email": ""
+    },
+    {
+        "name": "Aditya Mahale",
+        "url": "https://ca.linkedin.com/in/aditya-mahale",
+        "location": "Halifax, Nova Scotia",
+        "experience": "Senior Software Engineer with seven years of development experience",
+        "skills": "JavaScript, TypeScript, Python, Java, C, SQL",
+        "email": ""
+    },
+    {
+        "name": "Son Pham",
+        "url": "https://ca.linkedin.com/in/son-pham-623937222",
+        "location": "Halifax, Nova Scotia, Canada",
+        "experience": "Halifax, Nova Scotia, Canada",
+        "skills": "Software Engineer",
+        "email": ""
+    }
+]

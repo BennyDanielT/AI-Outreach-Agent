@@ -4,11 +4,14 @@ from langchain_community.llms import Ollama
 from langchain_groq import ChatGroq
 from crewai_tools import SerperDevTool, WebsiteSearchTool, ScrapeWebsiteTool
 
-# from tools.custom_tools import CustomTools
+from tools.custom_tools import pse
 
-web_search_tool = WebsiteSearchTool()
+web_search_tool = WebsiteSearchTool(search_query="https://bluegrid.energy/")
 serper_dev_tool = SerperDevTool()
-scraper_tool = ScrapeWebsiteTool(website_url="https://www.linkedin.com")
+# scraper_tool = ScrapeWebsiteTool(
+#     website_url="""site:ca.linkedin.com/in ("Calgary * Canada") AND (Java AND Hibernate) AND (Spring OR MySQL)"""
+# )
+pse_tool = pse
 
 
 @CrewBase
@@ -29,10 +32,11 @@ class RecruitmentCrew:
     @agent
     def requirement_specification_agent(self) -> Agent:
         """Agent for gathering requirements and drafting a job advertisement"""
+
         return Agent(
             config=self.agents_config["requirement_specification_agent"],
             llm=self.LLM,
-            tools=[scraper_tool],
+            tools=[web_search_tool],
             # cache=True,
         )
 
@@ -42,7 +46,7 @@ class RecruitmentCrew:
         return Agent(
             config=self.agents_config["talent_acquisition_agent"],
             llm=self.LLM,
-            tools=[web_search_tool, serper_dev_tool, scraper_tool],
+            tools=[web_search_tool, pse_tool],
             # cache=True,
         )
 
@@ -72,10 +76,8 @@ class RecruitmentCrew:
         return Task(
             config=self.tasks_config["talent_acquisition_task"],
             agent=self.talent_acquisition_agent(),
-            # human_input=True,
         )
 
-    # @task
     # def outreach_task(self) -> Task:
     #     """Task for sending out job advertisements to applicable individuals and invite them to apply"""
     #     return Task(
@@ -91,5 +93,9 @@ class RecruitmentCrew:
     def recruitment_crew(self) -> Crew:
         """Crew for recruiting individuals for opening(s) in an organization"""
         return Crew(
-            agents=self.agents, tasks=self.tasks, process=Process.sequential, verbose=2
+            agents=self.agents,
+            tasks=self.tasks,
+            process=Process.sequential,
+            verbose=2,
+            share_crew=True,
         )

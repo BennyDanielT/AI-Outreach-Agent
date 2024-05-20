@@ -1,0 +1,29 @@
+## About the Organization
+BlueGrid is a leading company in the field of vessel-to-grid technology, aiming to reduce reliance on fossil fuels and create a sustainable path to net zero. The company works at the convergence of two net zero megatrends: electric marine transportation and net zero electricity grids.
+
+## About the Job
+We are seeking a talented DevOps Developer to join our team at Rimot.io. The successful candidate will work on TypeScript and Python codebases, focusing on CICD, pipeline development, and deployment. The job is full-time and based in Halifax, Nova Scotia, with a start date of June 30, 2024.
+
+## Responsibilities
+- Design and develop scalable and efficient DevOps pipelines for our vessel-to-grid technology
+- Collaborate with cross-functional teams to ensure seamless integration of our technology with existing systems
+- Develop and maintain high-quality code in TypeScript and Python
+- Troubleshoot and resolve technical issues in a timely and efficient manner
+- Participate in code reviews and contribute to the improvement of our development processes
+
+## Requirements
+- Bachelor's degree in Computer Science, Engineering, or a related field
+- At least 2 years of experience in DevOps, software development, or a related field
+- Strong understanding of DevOps principles and practices
+- Proficiency in TypeScript and Python programming languages
+- Experience with CICD tools and pipeline development
+- Strong problem-solving skills and attention to detail
+- Excellent communication and collaboration skills
+
+## Good to Have
+- Experience with cloud-based technologies such as AWS or Azure
+- Knowledge of containerization using Docker
+- Familiarity with agile development methodologies
+- Certification in DevOps or a related field
+
+Note: The job requirements and responsibilities are subject to change based on the company's needs and priorities.
