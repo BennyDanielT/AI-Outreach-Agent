@@ -61,9 +61,9 @@ def pse(location: str, skills: str, **kwargs: Any) -> list:
         return []
 
 
-# @tool(
-#     "Send personalized Emails to target individuals whose profiles match the job requirements"
-# )
+@tool(
+    "Send personalized Emails to target individuals whose profiles match the job requirements"
+)
 def send_emails(json_data, location: str, role: str, organization: str):
     """
     Send personalized emails to target individuals whose profiles match the job requirements
@@ -79,6 +79,7 @@ def send_emails(json_data, location: str, role: str, organization: str):
     """
     # Load JSON data
     data = json.loads(json_data)
+    email_id = os.getenv("EMAIL_ID")
     password = os.getenv("EMAIL_PASSWORD")
 
     # SMTP server details
