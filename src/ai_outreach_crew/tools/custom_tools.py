@@ -3,8 +3,11 @@ import requests
 from typing import Any
 from crewai_tools import tool
 from dotenv import load_dotenv
+import json
+import smtplib
+from email.mime.text import MIMEText
 
-load_dotenv()
+load_dotenv(override=True)
 
 
 # class CustomTools:
@@ -56,6 +59,79 @@ def pse(location: str, skills: str, **kwargs: Any) -> list:
     else:
         print(f"Error: {response.status_code} - {response.text}")
         return []
+
+
+# @tool(
+#     "Send personalized Emails to target individuals whose profiles match the job requirements"
+# )
+def send_emails(json_data, location: str, role: str, organization: str):
+    """
+    Send personalized emails to target individuals whose profiles match the job requirements
+
+    Args:
+        json_data (str): JSON data containing the job requirements
+        location (str): Location of the job
+        role (str): Role of the job
+        organization (str): Organization name
+
+    Returns:
+        str: Success message
+    """
+    # Load JSON data
+    data = json.loads(json_data)
+    password = os.getenv("EMAIL_PASSWORD")
+
+    # SMTP server details
+    smtp_server = "smtp.gmail.com"
+    smtp_port = 587
+    smtp_username = "bd12bendan28@gmail.com"
+    smtp_password = password
+
+    # Create SMTP connection
+    server = smtplib.SMTP(smtp_server, smtp_port)
+    server.starttls()
+    server.login(smtp_username, smtp_password)
+
+    # Iterate over individuals and send emails
+    for individual in data["individuals"]:
+        name = individual["name"]
+        email = individual["email"]
+
+        # Create email message
+        msg = MIMEText(
+            f"Dear {name},\n\nThis is a test email.\n\nBest regards,\nNick Fury"
+        )
+        msg["Subject"] = "Job Opportunity at Avengers Inc."
+        msg["From"] = smtp_username
+        msg["To"] = email
+
+        # Send email
+        server.send_message(msg)
+        print(f"Email sent to: {name} ({email})")
+
+    # Close SMTP connection
+    server.quit()
+    return {"status_code": 200, "message": "success"}
+
+
+# Example JSON data
+json_data = """
+{
+  "individuals": [
+    {
+      "name": "Benny Daniel",
+      "email": "benny28dany@gmail.com"
+    },
+    {
+      "name": "Maverick Morales",
+      "email": "benny28dany@gmail.com"
+    }
+  ]
+}
+"""
+
+# Call the function with JSON data
+send_emails(json_data, "Toronto", "DevOps Developer", "PolicyMe")
 
 
 # if __name__ == "__main__":
