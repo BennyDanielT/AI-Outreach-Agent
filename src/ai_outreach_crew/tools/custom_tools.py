@@ -61,9 +61,9 @@ def pse(location: str, skills: str, **kwargs: Any) -> list:
         return []
 
 
-@tool(
-    "Send personalized Emails to target individuals whose profiles match the job requirements"
-)
+# @tool(
+#     "Send personalized Emails to target individuals whose profiles match the job requirements"
+# )
 def send_emails(json_data, location: str, role: str, organization: str):
     """
     Send personalized emails to target individuals whose profiles match the job requirements
@@ -75,60 +75,91 @@ def send_emails(json_data, location: str, role: str, organization: str):
         organization (str): Organization name
 
     Returns:
-        str: Success message
+        dict: Dictionary containing status code and message
     """
-    # Load JSON data
-    data = json.loads(json_data)
-    email_id = os.getenv("EMAIL_ID")
-    password = os.getenv("EMAIL_PASSWORD")
+    try:
+        # Load JSON data
+        data = json.loads(json_data)
 
-    # SMTP server details
-    smtp_server = "smtp.gmail.com"
-    smtp_port = 587
-    smtp_username = "bd12bendan28@gmail.com"
-    smtp_password = password
+        # SMTP server details
+        smtp_server = "smtp.gmail.com"
+        smtp_port = 587
+        smtp_username = os.getenv("EMAIL_ID")
+        smtp_password = os.getenv("EMAIL_PASSWORD")
 
-    # Create SMTP connection
-    server = smtplib.SMTP(smtp_server, smtp_port)
-    server.starttls()
-    server.login(smtp_username, smtp_password)
+        # Create SMTP connection
+        server = smtplib.SMTP(smtp_server, smtp_port)
+        server.starttls()
+        server.login(smtp_username, smtp_password)
 
-    # Iterate over individuals and send emails
-    for individual in data["individuals"]:
-        name = individual["name"]
-        email = individual["email"]
+        # Iterate over individuals and send emails
+        for individual in data:
+            name = individual["name"]
+            email = individual["email"]
 
-        # Create email message
-        msg = MIMEText(
-            f"Dear {name},\n\nThis is a test email.\n\nBest regards,\nNick Fury"
-        )
-        msg["Subject"] = "Job Opportunity at Avengers Inc."
-        msg["From"] = smtp_username
-        msg["To"] = email
+            # Create email message
+            msg = MIMEText(
+                f"Dear {name},\n\nI am writing to regarding an opening in {location} at {organization}.\n\nBest regards,\n{organization}"
+            )
+            msg["Subject"] = f"{role} - Job Opportunity at {organization}"
+            msg["From"] = smtp_username
+            msg["To"] = email
 
-        # Send email
-        server.send_message(msg)
-        print(f"Email sent to: {name} ({email})")
+            # Send email
+            server.send_message(msg)
+            print(f"Email sent to: {name} ({email})")
 
-    # Close SMTP connection
-    server.quit()
-    return {"status_code": 200, "message": "success"}
+        # Close SMTP connection
+        server.quit()
+        return {"status_code": 200, "message": "Emails sent successfully"}
+    except Exception as e:
+        return {"status_code": 500, "message": f"Error: {str(e)}"}
 
 
 # Example JSON data
 json_data = """
-{
-  "individuals": [
+[
     {
-      "name": "Benny Daniel",
-      "email": "benny28dany@gmail.com"
+        "name": "Sai Sandeep Mutyala",
+        "url": "https://ca.linkedin.com/in/sandeepmutyala",
+        "location": "Halifax, Nova Scotia",
+        "experience": "",
+        "skills": "TypeScript, Python, Ruby, HTML, CSS",
+        "email": "benny28dany@gmail.com"
     },
     {
-      "name": "Maverick Morales",
-      "email": "benny28dany@gmail.com"
+        "name": "Henri Vandersleyen",
+        "url": "https://ca.linkedin.com/in/henri-vandersleyen-a25a8312b",
+        "location": "Halifax, Nova Scotia, Canada",
+        "experience": "May 2012 - Dec 2013 1 year 8 months",
+        "skills": "Software Development Life Cycle SDLC and Project Management",
+        "email": "benny28dany@gmail.com"
+    },
+    {
+        "name": "Huang Zheng",
+        "url": "https://ca.linkedin.com/in/huang-zheng-425948121",
+        "location": "Halifax, Nova Scotia",
+        "experience": "6 years of Backend development experience",
+        "skills": "Python, Software Development Life Cycle SDLC and Project Management",
+        "email": "benny28dany@gmail.com"
+    },
+    {
+        "name": "Aditya Mahale",
+        "url": "https://ca.linkedin.com/in/aditya-mahale",
+        "location": "Halifax, Nova Scotia",
+        "experience": "Senior Software Engineer with seven years of development experience",
+        "skills": "JavaScript, TypeScript, Python, Java, C, SQL",
+        "email": "benny28dany@gmail.com"
+    },
+    {
+        "name": "Son Pham",
+        "url": "https://ca.linkedin.com/in/son-pham-623937222",
+        "location": "Halifax, Nova Scotia, Canada",
+        "experience": "Halifax, Nova Scotia, Canada",
+        "skills": "Software Engineer",
+        "email": "benny28dany@gmail.com"
     }
-  ]
-}
+]
 """
 
 # Call the function with JSON data
