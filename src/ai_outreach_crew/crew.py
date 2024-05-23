@@ -4,7 +4,7 @@ from langchain_community.llms import Ollama
 from langchain_groq import ChatGroq
 from crewai_tools import SerperDevTool, WebsiteSearchTool, ScrapeWebsiteTool
 
-from tools.custom_tools import pse
+from tools.custom_tools import pse, send_emails
 
 web_search_tool = WebsiteSearchTool(search_query="https://bluegrid.energy/")
 serper_dev_tool = SerperDevTool()
@@ -12,6 +12,7 @@ serper_dev_tool = SerperDevTool()
 #     website_url="""site:ca.linkedin.com/in ("Calgary * Canada") AND (Java AND Hibernate) AND (Spring OR MySQL)"""
 # )
 pse_tool = pse
+email_tool = send_emails
 
 
 @CrewBase
@@ -23,7 +24,7 @@ class RecruitmentCrew:
 
     def __init__(self):
         # self.LLM = Ollama(model="llama3")
-        self.LLM = ChatGroq(temperature=0.3, model_name="llama3-8b-8192")
+        self.LLM = ChatGroq(temperature=0.6, model_name="llama3-8b-8192")
 
     #################################################################
     # Agents:
@@ -50,13 +51,14 @@ class RecruitmentCrew:
             # cache=True,
         )
 
-    # @agent
-    # def outreach_agent(self) -> Agent:
-    #     """Agent for sending out job advertisements to applicable individuals and invite them to apply"""
-    #     return Agent(
-    #         config=self.agents_config["outreach_agent"],
-    #         llm=self.LLM,
-    #     )
+    @agent
+    def outreach_agent(self) -> Agent:
+        """Agent for sending out job advertisements to applicable individuals and invite them to apply"""
+        return Agent(
+            config=self.agents_config["outreach_agent"],
+            llm=self.LLM,
+            tools=[email_tool],
+        )
 
     #################################################################
     # Tasks:
@@ -76,14 +78,16 @@ class RecruitmentCrew:
         return Task(
             config=self.tasks_config["talent_acquisition_task"],
             agent=self.talent_acquisition_agent(),
+            # context=[self.craft_job_ad_task],
         )
 
-    # def outreach_task(self) -> Task:
-    #     """Task for sending out job advertisements to applicable individuals and invite them to apply"""
-    #     return Task(
-    #         config=self.tasks_config["outreach_task"],
-    #         agent=self.outreach_agent(),
-    #     )
+    def outreach_task(self) -> Task:
+        """Task for sending out job advertisements to applicable individuals and invite them to apply"""
+        return Task(
+            config=self.tasks_config["outreach_task"],
+            agent=self.outreach_agent(),
+            # context=[self.craft_job_ad_task, self.talent_acquisition_task],
+        )
 
     #################################################################
     # Crew:
@@ -97,5 +101,5 @@ class RecruitmentCrew:
             tasks=self.tasks,
             process=Process.sequential,
             verbose=2,
-            share_crew=True,
+            share_crew=False,
         )

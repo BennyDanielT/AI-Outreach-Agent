@@ -5,6 +5,8 @@
     verbose: true
     # memory: true
     allow_delegation: false
+    # tools: [web_search_tool]
+
     
   talent_acquisition_agent:
     role: Talent Acquisition Specialist
@@ -13,6 +15,7 @@
     verbose: true
     # memory: true
     allow_delegation: false
+    # tools: [web_search_tool, pse_tool]
     
 
   outreach_agent:
@@ -22,3 +25,4 @@
     verbose: true
     # memory: true
     allow_delegation: false
+    # tools: [email_tool]

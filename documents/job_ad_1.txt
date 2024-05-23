@@ -1,29 +1,29 @@
 ## About the Organization
-BlueGrid is a leading company in the field of vessel-to-grid technology, aiming to reduce reliance on fossil fuels and create a sustainable path to net zero. The company works at the convergence of two net zero megatrends: electric marine transportation and net zero electricity grids.
+BlueGrid is a company that specializes in vessel-to-grid technology, which allows electric boats to not only consume power but also feed power back into the grid. They work at the convergence of two net zero megatrends: Electric Marine Transportation and Net Zero Electricity Grids.
 
 ## About the Job
-We are seeking a talented DevOps Developer to join our team at Rimot.io. The successful candidate will work on TypeScript and Python codebases, focusing on CICD, pipeline development, and deployment. The job is full-time and based in Halifax, Nova Scotia, with a start date of June 30, 2024.
+Rimot.io is seeking a DevOps Developer to work on their Tyscript and Python codebases, focusing on CICD, pipeline development, and deployment. The job will start on June 30, 2024, and is a full-time position.
 
 ## Responsibilities
-- Design and develop scalable and efficient DevOps pipelines for our vessel-to-grid technology
-- Collaborate with cross-functional teams to ensure seamless integration of our technology with existing systems
-- Develop and maintain high-quality code in TypeScript and Python
-- Troubleshoot and resolve technical issues in a timely and efficient manner
-- Participate in code reviews and contribute to the improvement of our development processes
+- Design, develop, and deploy software solutions to support the vessel-to-grid technology
+- Collaborate with the development team to identify and prioritize features and bug fixes
+- Develop and maintain automated testing and deployment scripts
+- Participate in code reviews and contribute to the improvement of the codebase
+- Troubleshoot and debug issues in the codebase
 
 ## Requirements
-- Bachelor's degree in Computer Science, Engineering, or a related field
-- At least 2 years of experience in DevOps, software development, or a related field
-- Strong understanding of DevOps principles and practices
-- Proficiency in TypeScript and Python programming languages
-- Experience with CICD tools and pipeline development
-- Strong problem-solving skills and attention to detail
-- Excellent communication and collaboration skills
+- 3+ years of experience in software development with a focus on DevOps and automation
+- Strong understanding of Tyscript and Python programming languages
+- Experience with CICD and pipeline development
+- Knowledge of containerization and orchestration tools (e.g., Docker, Kubernetes)
+- Excellent problem-solving skills and attention to detail
+- Strong communication and teamwork skills
 
 ## Good to Have
-- Experience with cloud-based technologies such as AWS or Azure
-- Knowledge of containerization using Docker
-- Familiarity with agile development methodologies
+- Experience with cloud-based technologies (e.g., AWS, Google Cloud)
+- Familiarity with Agile development methodologies
+- Knowledge of relational databases and data modeling
+- Experience with containerization and orchestration tools (e.g., Docker, Kubernetes)
 - Certification in DevOps or a related field
 
-Note: The job requirements and responsibilities are subject to change based on the company's needs and priorities.
+Note: The job advertisement is crafted based on the information gathered from the recruiter or HR personnel and the organization's website.

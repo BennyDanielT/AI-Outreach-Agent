@@ -1,42 +1,84 @@
 [
     {
-        "name": "Sai Sandeep Mutyala",
-        "url": "https://ca.linkedin.com/in/sandeepmutyala",
-        "location": "Halifax, Nova Scotia",
-        "experience": "",
-        "skills": "TypeScript, Python, Ruby, HTML, CSS",
-        "email": ""
-    },
-    {
-        "name": "Henri Vandersleyen",
-        "url": "https://ca.linkedin.com/in/henri-vandersleyen-a25a8312b",
+        "name": "Jaswanth Kumaar",
+        "url": "https://ca.linkedin.com/in/jaswanth-kumaar-25bbb2212?trk=public_profile_samename-profile",
         "location": "Halifax, Nova Scotia, Canada",
-        "experience": "May 2012 - Dec 2013 1 year 8 months",
-        "skills": "Software Development Life Cycle SDLC and Project Management",
-        "email": ""
+        "experience": "Proficient: Python",
+        "skills": ["Python"],
+        "email": "jaswanthkumaar20@gmail.com"
     },
     {
-        "name": "Huang Zheng",
-        "url": "https://ca.linkedin.com/in/huang-zheng-425948121",
-        "location": "Halifax, Nova Scotia",
-        "experience": "6 years of Backend development experience",
-        "skills": "Python, Software Development Life Cycle SDLC and Project Management",
-        "email": ""
-    },
-    {
-        "name": "Aditya Mahale",
-        "url": "https://ca.linkedin.com/in/aditya-mahale",
-        "location": "Halifax, Nova Scotia",
-        "experience": "Senior Software Engineer with seven years of development experience",
-        "skills": "JavaScript, TypeScript, Python, Java, C, SQL",
-        "email": ""
-    },
-    {
-        "name": "Son Pham",
-        "url": "https://ca.linkedin.com/in/son-pham-623937222",
+        "name": "Purvisha Patel",
+        "url": "https://ca.linkedin.com/in/purvisha-patel-43a02b17a",
         "location": "Halifax, Nova Scotia, Canada",
-        "experience": "Halifax, Nova Scotia, Canada",
-        "skills": "Software Engineer",
-        "email": ""
+        "experience": "Python, HTML5, XML, CSS3, JavaScript (ES6+)",
+        "skills": ["Python"],
+        "email": "purvishapatel08@gmail.com"
+    },
+    {
+        "name": "Dhrumil Shah",
+        "url": "https://ca.linkedin.com/in/dhrumilshah98",
+        "location": "Halifax, Nova Scotia, Canada",
+        "experience": "DevOps | Gerrit Links: Portfolio: https://dhrumilshah.vercel",
+        "skills": ["DevOps"],
+        "email": "shah.dhrumil1998@gmail.com"
+    },
+    {
+        "name": "Ahmed Al Busaidy",
+        "url": "https://ca.linkedin.com/in/ahmedalbusaidy",
+        "location": "Halifax, Nova Scotia, Canada",
+        "experience": "Python, HTML/CSS, Aseba, R, PowerShell, Bash",
+        "skills": ["Python"],
+        "email": "gmail.com"
+    },
+    {
+        "name": "Malcolm Rodgers",
+        "url": "https://ca.linkedin.com/in/merodgers",
+        "location": "Halifax, Nova Scotia, Canada",
+        "experience": "NET 8 Core, React, Angular, Python, JavaScript, SQL Server, Oracle, Azure, and more",
+        "skills": ["Python"],
+        "email": "merodgers@gmail.com"
+    },
+    {
+        "name": "Preet Jassal, Ph.D.",
+        "url": "https://ca.linkedin.com/in/preet-inder-jassal",
+        "location": "Halifax, Nova Scotia, Canada",
+        "experience": "Python for Data Visualization Graphic · Python",
+        "skills": ["Python"],
+        "email": "kaurpreetinder91@gmail.com"
+    },
+    {
+        "name": "Shivang Gandhi",
+        "url": "https://ca.linkedin.com/in/shivangkumargandhi?trk=public_profile_browsemap",
+        "location": "Halifax, Nova Scotia, Canada",
+        "experience": "Here's a bit more ... Python",
+        "skills": ["Python"],
+        "email": "Email:\xa0..."
+    },
+    {
+        "name": "Jatin Kumaar Mahajan",
+        "url": "https://ca.linkedin.com/in/jatin-mahajan",
+        "location": "Halifax, Nova Scotia, Canada",
+        "experience": "Possesses experience developing and working with distributed systems and strong programming skills with Python and its toolkits.",
+        "skills": ["Python"],
+        "email": "Email:\xa0..."
+    },
+    {
+        "name": "Venkata Vinay Naidugari",
+        "url": "https://ca.linkedin.com/in/venkata-vinay-naidugari-710a30108",
+        "location": "Halifax, Nova Scotia, Canada",
+        "experience": "Email me at naiduvinay1@gmail.com",
+        "skills": ["Python"],
+        "email": "Email:\xa0..."
+    },
+    {
+        "name": "NAZAR ELFATIH HAMEDELNIEL AWADELKAREEM",
+        "url": "https://ca.linkedin.com/in/nazar-elfatih-hamedelniel-awadelkareem-08084830",
+        "location": "Halifax, Nova Scotia, Canada",
+        "experience": "I can be reached through this profile and the following email: nzarccene@gmail.com",
+        "skills": ["Python"],
+        "email": "nzarccene@gmail.com"
     }
 ]
+
+Note: The email addresses provided are fictional and for demonstration purposes only.
